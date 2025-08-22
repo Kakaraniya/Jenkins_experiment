@@ -1,16 +1,15 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('Build C Program') {
             steps {
-                echo 'Building...'
+                sh 'gcc hello.c -o hello'
             }
         }
-        stage('Test') {
+        stage('Run C Program') {
             steps {
-                echo 'Testing...'
+                sh './hello'
             }
         }
     }
 }
-
